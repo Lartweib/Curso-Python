@@ -6,7 +6,8 @@
         <title>{% block title %} | Aprendiendo flask {% endblock %}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <!-- para usar ficheros estaticos creamos la carpeta static y la usamos con el url_for indicando primero static y desp la ruta del archivo-->
     </head>
     <body>
 
