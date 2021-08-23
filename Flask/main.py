@@ -32,11 +32,11 @@ def contacto(redireccion = None):
         #Podemos redireccionar paginas utilizando redirect
         return redirect(url_for('lenguajes'))
 
-    return '<h1>Pagina de contacto</h1>'
+    return render_template('contacto.html')
 
 @app.route('/lenguajes-de-programacion')
 def lenguajes():
-    return '<h1>Pagina de lenguajes</h1>'
+    return render_template('lenguajes.html')
 
 # Esto es para identificar el fichero principal
 if __name__ == '__main__':
