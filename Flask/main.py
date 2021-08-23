@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 
 # Crear la app de flask
 app = Flask(__name__)
@@ -6,7 +6,9 @@ app = Flask(__name__)
 # Definir las rutas con el metodo route
 @app.route('/')
 def index():
-    return 'Aprendiendo Flask'
+    # Uso render_template para cargar un template
+    # Al estar dentro de la carpeta template no necesito indicar la ruta
+    return render_template('index.html')
 
 #Defino la misma ruta para hacer que el parametro sea opcional
 @app.route('/informacion')
@@ -19,12 +21,8 @@ def informacion(nombre = None):
     texto = ""
     if nombre != None:
         texto = f'<h3>Bienvenido, {nombre}</h3>'
-    
-    return f'''
-                <h1>Pagina de informacion</h1>
-                <p>Esta es la pagina de informacion</p>
-                {texto}
-    '''
+    # Para pasarle la variable la agrego desp del template
+    return render_template('informacion.html', texto=texto)
 
 @app.route('/contacto')
 @app.route('/contacto/<redireccion>')
