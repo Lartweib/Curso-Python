@@ -8,7 +8,11 @@ app = Flask(__name__)
 def index():
     # Uso render_template para cargar un template
     # Al estar dentro de la carpeta template no necesito indicar la ruta
-    return render_template('index.html')
+    return render_template('index.html',
+                            dato1="Valor",
+                            dato2="Valor2",
+                            lista=["uno","dos","tres"]
+                            )
 
 #Defino la misma ruta para hacer que el parametro sea opcional
 @app.route('/informacion')
